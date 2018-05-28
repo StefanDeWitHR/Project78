@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nager.Date;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +9,14 @@ namespace TestApplication
 {
     public  class GenerateTestData
     {
-        public DateTime GetRandomDate()
+        private Random gen = new Random();
+        DateTime GetRandomDate()
         {
-            DateTime dtStart = new DateTime(2015, 1, 1);
-            DateTime dtEnd = new DateTime(2018, 1, 1);
-            Random rnd = new Random();
-
-            int cdayRange = (dtEnd - dtStart).Days;
-
-            return dtStart.AddDays(rnd.NextDouble() * cdayRange);
+            DateTime start = new DateTime(2015, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            return start.AddDays(gen.Next(range));
         }
+
         public List<string> GenerateListKwartieren()
         {
             List<string> kwartieren = new List<string>();
@@ -59,15 +58,13 @@ namespace TestApplication
             //kwartieren.Add("16:30");
             //kwartieren.Add("16:45");
             //kwartieren.Add("17:00");
-
             return kwartieren;
         }
+
         public void  Run()
         {
-
             Random rnd = new Random();
             int schoolvakantie = rnd.Next(0, 1);
-            int feestdag = rnd.Next(0, 1);
             int file = rnd.Next(0, 1);
             DateTime maand_jaar  =  GetRandomDate();
             List<string> kwartieren = GenerateListKwartieren();
@@ -75,13 +72,12 @@ namespace TestApplication
             int keuze = 0;
             DB.OpenCon();
             DateTime d;
-            for (int i = 0; i < 10000; i++)
+            string convert_maand = "";
+            for (int i = 0; i < 50000; i++)
             {
 
-                // after save generate_new_ids
-               
+                // after save generate_new_ids    
                 schoolvakantie = rnd.Next(0, 2);
-                feestdag = rnd.Next(0, 2);
                 file = rnd.Next(0, 2);
                 maand_jaar = GetRandomDate();
                 
@@ -90,19 +86,25 @@ namespace TestApplication
                 kwartieren.ElementAt(keuze);
 
                 var temp = kwartieren[keuze];
-                
 
-                if (DateTime.TryParse(temp, out maand_jaar))
+                maand_jaar = maand_jaar.Add(TimeSpan.Parse(temp));
+
+                convert_maand = String.Format("{0:yyyy-MM-dd:HH:mm}", maand_jaar);
+
+                if (DateSystem.IsPublicHoliday(maand_jaar, CountryCode.NL))
                 {
-                    maand_jaar.AddTicks(maand_jaar.TimeOfDay.Ticks);
+                    schoolvakantie = 1;
                 }
-               
-                DB.QueryInsert<string>("INSERT INTO  data_beacon(`school_holiday`,`feast_day`,`file`,`dt_created`,`module`) VALUES ('" + schoolvakantie + "' , '" + feestdag + "','" + file + "','" + maand_jaar + "','" + module + "')"); // Save results in DB
+                else
+                {
+                    schoolvakantie = 0;
+                }
 
+                DB.QueryInsert<string>("INSERT INTO  data_beacon(`school_holiday`,`file`,`dt_created`,`module`) VALUES " +
+                    "(" + schoolvakantie + "," + file + ",'" + convert_maand + "','" + module + "')"); // Save results in DB
             }
+
            DB.CloseCon();
-
-
         }       
     }
 }

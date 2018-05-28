@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "196e7adde2dcfa42a2521bfd9dbe078bf11bd4d1"
+    "signature": "aabded211f90b148e6d2024038de6eaa5c6d16ab"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
       "TestApplication/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.0.11",
+          "Nager.Date": "1.20.1",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -30,6 +31,11 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/MySql.Data.dll": {}
+        }
+      },
+      "Nager.Date/1.20.1": {
+        "runtime": {
+          "lib/netstandard2.0/Nager.Date.dll": {}
         }
       },
       "Newtonsoft.Json/11.0.2": {
@@ -230,6 +236,13 @@
       "sha512": "sha512-P5zKcnM2SVtdHD6gfReymJguIYLhNL5Og8Qm5TC9MEsSupsAYrRu4AB4nsbalrjqqv8VHBqVREWsXg9lY+q03A==",
       "path": "mysql.data/8.0.11",
       "hashPath": "mysql.data.8.0.11.nupkg.sha512"
+    },
+    "Nager.Date/1.20.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w2qJ9ZDE/M/1oIwjF7HXLX4xFN8ibMLwPpXERPimRHCC+TxfcG/t/LKPv+dP7mHQO7S/Fc9JAE/w7QAjauxxfw==",
+      "path": "nager.date/1.20.1",
+      "hashPath": "nager.date.1.20.1.nupkg.sha512"
     },
     "Newtonsoft.Json/11.0.2": {
       "type": "package",
