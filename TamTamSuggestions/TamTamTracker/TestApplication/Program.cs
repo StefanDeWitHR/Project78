@@ -9,7 +9,7 @@ namespace TamTamTracker
         {
             // Generate test data
             GenerateTestData g = new GenerateTestData();
-            g.Run();
+            //g.Run();
 
 
         }

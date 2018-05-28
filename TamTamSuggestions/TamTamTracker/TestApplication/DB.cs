@@ -19,9 +19,7 @@ namespace TestApplication
 
             MySqlConnection MyConnection = null;
 
-            MyConnection = new MySqlConnection(
-             "server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;
-            );
+            MyConnection = new MySqlConnection("server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;SslMode=none");
           //"Server=127.0.0.1;Database=suggestions;UID=root;Password=stefan"
           //  MyConnection.Open();
 
@@ -33,7 +31,7 @@ namespace TestApplication
         public static void QueryInsert<T>(string query)
         {
              MyConnection = new MySqlConnection(
-             "server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;
+             "server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;SslMode=none"
             );
 
             MySqlCommand cmd = new MySqlCommand(query, MyConnection);
