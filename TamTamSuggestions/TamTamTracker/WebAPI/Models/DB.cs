@@ -6,37 +6,67 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace WebAPI.Models
+namespace WebAPI
 {
     public static class DB {
-        private static MySqlConnection MyConnection;
+        private static MySqlConnection MyConnection{ get; set; }
         private static MySqlDataReader MyReader;
 
 
         // Requirements : Install-Package MySql.Data
         // MySql driver for visual studio https://dev.mysql.com/downloads/file/?id=476476
-        public static void OpenCon() {
+        public static MySqlConnection OpenCon() {
 
             MySqlConnection MyConnection = null;
-            MyConnection = new MySqlConnection("Server=(local);DataBase=suggestions;Integrated Security=SSPI");
-            MyConnection.Open();
+
+            MyConnection = new MySqlConnection("server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;SslMode=none");
+            //"Server=127.0.0.1;Database=suggestions;UID=root;Password=stefan"
+            //  MyConnection.Open();
+            return MyConnection;
 
         }
         public static void CloseCon()
         {
             MyConnection.Close();
         }
-        public static List<T> Query<T>(string query)
+        public static MySqlDataReader QuerySelect(string query)
         {
-           
-            MySqlDataReader MyReader = null;
-            MySqlCommand MyCommand = new MySqlCommand(query, MyConnection);
+            MySqlDataReader reader = null;
+  
+            MyConnection = DB.OpenCon();
+            try
+            {
 
-            List<T> results = new List<T>();
-            MyReader = MyCommand.ExecuteReader();
-            // ...
-            MyReader.Close();
-            return results;
+
+                
+                MySqlCommand cmd = new MySqlCommand(query, MyConnection);
+
+
+                MyConnection.Open();
+                reader = cmd.ExecuteReader();
+                
+            }
+            catch
+            {
+                Console.Write("Select query gaat fout" + query);
+            }
+            
+           // MyConnection.Close();
+
+            return reader;
+
+        }
+        public static void QueryInsert<T>(string query)
+        {
+            MyConnection = DB.OpenCon();
+
+            MySqlCommand cmd = new MySqlCommand(query, MyConnection);
+
+            MyConnection.Open();
+            cmd.ExecuteNonQuery();
+            MyConnection.Close();
+
+
 
         }
     }

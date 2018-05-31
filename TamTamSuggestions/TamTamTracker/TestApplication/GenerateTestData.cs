@@ -73,12 +73,14 @@ namespace TestApplication
             DB.OpenCon();
             DateTime d;
             string convert_maand = "";
+            int amount_of_people = 0;
             for (int i = 0; i < 50000; i++)
             {
 
                 // after save generate_new_ids    
                 schoolvakantie = rnd.Next(0, 2);
                 file = rnd.Next(0, 2);
+                amount_of_people = rnd.Next(0, 100);
                 maand_jaar = GetRandomDate();
                 
                 kwartieren = GenerateListKwartieren();
@@ -100,8 +102,8 @@ namespace TestApplication
                     schoolvakantie = 0;
                 }
 
-                DB.QueryInsert<string>("INSERT INTO  data_beacon(`school_holiday`,`file`,`dt_created`,`module`) VALUES " +
-                    "(" + schoolvakantie + "," + file + ",'" + convert_maand + "','" + module + "')"); // Save results in DB
+                DB.QueryInsert<string>("INSERT INTO  data_beacon(`school_holiday`,`file`,`dt_created`,`module`,`amount_of_people`) VALUES " +
+                    "(" + schoolvakantie + "," + file + ",'" + convert_maand + "','" + module + "', "+ amount_of_people + ")"); // Save results in DB
             }
 
            DB.CloseCon();

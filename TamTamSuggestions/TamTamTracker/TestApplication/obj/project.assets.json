@@ -218,6 +218,15 @@
           "lib/netcoreapp2.0/MySql.Data.dll": {}
         }
       },
+      "Nager.Date/1.20.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Nager.Date.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Nager.Date.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -882,6 +891,19 @@
         "lib/netstandard2.0/MySql.Data.xml",
         "mysql.data.8.0.11.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "Nager.Date/1.20.1": {
+      "sha512": "w2qJ9ZDE/M/1oIwjF7HXLX4xFN8ibMLwPpXERPimRHCC+TxfcG/t/LKPv+dP7mHQO7S/Fc9JAE/w7QAjauxxfw==",
+      "type": "package",
+      "path": "nager.date/1.20.1",
+      "files": [
+        "lib/net45/Nager.Date.dll",
+        "lib/net461/Nager.Date.dll",
+        "lib/netstandard2.0/Nager.Date.dll",
+        "nager.date.1.20.1.nupkg.sha512",
+        "nager.date.nuspec",
+        "tools/install.ps1"
       ]
     },
     "NETStandard.Library/2.0.0": {
@@ -2128,31 +2150,29 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NETCore.App >= 2.0.0",
       "MySql.Data >= 8.0.11",
+      "Nager.Date >= 1.20.1",
       "Newtonsoft.Json >= 11.0.2"
     ]
   },
   "packageFolders": {
     "C:\\Users\\super\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
+      "projectUniqueName": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
       "projectName": "TestApplication",
-      "projectPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
+      "projectPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
       "packagesPath": "C:\\Users\\super\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\TamTamSuggestions\\TamTamTracker\\TestApplication\\obj\\",
+      "outputPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\super\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -2183,6 +2203,10 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.11, )"
+          },
+          "Nager.Date": {
+            "target": "Package",
+            "version": "[1.20.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

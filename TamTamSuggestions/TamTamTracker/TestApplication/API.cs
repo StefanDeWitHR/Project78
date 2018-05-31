@@ -101,8 +101,6 @@ namespace TamTamTracker
                 throw E;
             }
         }
-
-        // puts
         public static async Task<bool> Put<T>(T DTO, string url)
         {
             bool LResult = false;
