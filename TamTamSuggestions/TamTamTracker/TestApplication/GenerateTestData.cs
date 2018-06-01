@@ -92,7 +92,13 @@ namespace TestApplication
                 maand_jaar = maand_jaar.Add(TimeSpan.Parse(temp));
 
                 convert_maand = String.Format("{0:yyyy-MM-dd:HH:mm}", maand_jaar);
-
+                int hours = maand_jaar.Hour;
+                if ((hours > 8 && hours< 12) || (hours) == 18 || (hours == 17)){
+                    file = 1;
+                }else{
+                    file = 0;
+                }
+			        
                 if (DateSystem.IsPublicHoliday(maand_jaar, CountryCode.NL))
                 {
                     schoolvakantie = 1;

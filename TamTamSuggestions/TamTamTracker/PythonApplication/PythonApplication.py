@@ -1,17 +1,10 @@
-
 import sys
-
 from sklearn import tree
 import requests
-#from requests.auth import HTTPDigestAuth
-import json
-
-#import collections;  
+import json 
 from datetime import datetime as dt
 from datetime import datetime
 import random
-# SKLEARN importeren
-#py C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\WebAPI\PythonScripts\machine_learning.py
 
 def GenerateSuggestion():
 		# get list of beacon data
@@ -69,7 +62,8 @@ def GenerateSuggestion():
 		month_factor = (int(month)/12)
 		hours_factor = (int(hours)/24)
 		minutes_factor = (int(minutes)/60)
-		
+		int_day_of_week = now.strftime("%a")
+        
 		if (int(hours) > 8 and int(hours)  < 12) or (int(hours) == 18 or int(hours == 17)):
 			file = 1
 		else:
@@ -88,7 +82,6 @@ def GenerateSuggestion():
 		suggestion = clf.predict([[year_factor,month_factor,day_factor,hours_factor, minutes_factor, file ,int(data_school_holiday) , 1]])
 		print(suggestion)
 		
-
 GenerateSuggestion();
 
 #print("test")

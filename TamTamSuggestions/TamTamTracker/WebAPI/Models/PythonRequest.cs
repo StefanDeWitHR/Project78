@@ -9,32 +9,37 @@ namespace WebAPI.Models
 {
     public class PythonRequest
     {
-        public void run_cmd()
+        public string run_cmd()
         {
-
+            // Python file
             string fileName = @"C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\PythonApplication\PythonApplication.py";
-
-            Boolean Exist_filename = File.Exists(fileName);
-            //Boolean ExistPython = File.Exists("C:/Users/env/Scripts/python.exe");
-            Boolean ExistPython = File.Exists(@"C:\Users\super\Anaconda3\");
-         
+           
+            // Start process
             Process p = new Process();
-        
-            p.StartInfo = new ProcessStartInfo(@"C:\Users\super\Anaconda3\python.exe", fileName)
-            {
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-            p.Start();
+            string suggestion = "";
+                p.StartInfo = new ProcessStartInfo(@"C:\Users\super\Anaconda3\python.exe", fileName)
+                {
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+                p.Start();
 
-            string output = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
+                suggestion = p.StandardOutput.ReadToEnd();
+                // Example : "[1]\r\n"
+                var chars_remove = new string [] { "[", "\r" , "]" , "\n" };
+                foreach (var c in chars_remove)
+                {
+                    suggestion = suggestion.Replace(c, string.Empty);
+                }
+                
+                p.WaitForExit();
 
-            Console.WriteLine(output);
+            return suggestion;
 
-            Console.ReadLine();
+
         }
 
-        }
+
+    }
     }

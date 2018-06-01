@@ -56,17 +56,10 @@ namespace WebAPI.Controllers
         [Route("api/suggestions/GetSuggestion")]
         public  string GetSuggestion(SuggestionGenerator sugGenerator)
         {
-            string suggestion = "";
-            //Cmd_Python.run_cmd();
             PythonRequest pr = new PythonRequest();
-            pr.run_cmd();
-           // Cmd_Python.run_cmd();
-            // Generare random suggestion_id and save it in DB
-            string suggestion_id = Guid.NewGuid().ToString();
 
-            // Save results in db
-            //   DB.QueryInsert<SugesstionsResponse>("INSERT INTO TABLE suggestions () VALUES()");
-
+            string suggestion = pr.run_cmd();         
+            string suggestion_key = Guid.NewGuid().ToString();
             return suggestion;
         }
 

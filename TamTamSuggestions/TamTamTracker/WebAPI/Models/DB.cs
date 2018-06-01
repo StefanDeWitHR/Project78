@@ -11,17 +11,12 @@ namespace WebAPI
     public static class DB {
         private static MySqlConnection MyConnection{ get; set; }
         private static MySqlDataReader MyReader;
-
-
         // Requirements : Install-Package MySql.Data
         // MySql driver for visual studio https://dev.mysql.com/downloads/file/?id=476476
         public static MySqlConnection OpenCon() {
 
             MySqlConnection MyConnection = null;
-
             MyConnection = new MySqlConnection("server=164.132.46.37; database= admin_op78; uid= admin_op78; pwd= KGLEqgGWQp;SslMode=none");
-            //"Server=127.0.0.1;Database=suggestions;UID=root;Password=stefan"
-            //  MyConnection.Open();
             return MyConnection;
 
         }
@@ -35,13 +30,8 @@ namespace WebAPI
   
             MyConnection = DB.OpenCon();
             try
-            {
-
-
-                
+            {            
                 MySqlCommand cmd = new MySqlCommand(query, MyConnection);
-
-
                 MyConnection.Open();
                 reader = cmd.ExecuteReader();
                 
@@ -50,9 +40,7 @@ namespace WebAPI
             {
                 Console.Write("Select query gaat fout" + query);
             }
-            
-           // MyConnection.Close();
-
+          
             return reader;
 
         }
@@ -65,9 +53,6 @@ namespace WebAPI
             MyConnection.Open();
             cmd.ExecuteNonQuery();
             MyConnection.Close();
-
-
-
         }
     }
 }
