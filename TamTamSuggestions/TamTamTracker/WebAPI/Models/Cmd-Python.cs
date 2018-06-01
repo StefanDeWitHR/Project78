@@ -15,11 +15,9 @@ namespace WebAPI.Models
         public static void run_cmd(/*string cmd, string args */)
         {
             var engine = Python.CreateEngine();
+
             var paths = engine.GetSearchPaths();
-            paths.Add(@"C:\Python\Python36-32\Lib\sklearn\");
-            paths.Add(@"C:\Python\Python36-32\Python.exe");
-            paths.Add(@"C:\Python\Python36-32\Lib\");
-            paths.Add(@"C:\Python\Python36-32\Lib\site-packages");
+        
             paths.Add(@"C:\users\super\appdata\local\programs\python\python36-32\lib\site-packages\sklearn\");
             engine.SetSearchPaths(paths);
             dynamic py = engine.ExecuteFile(@"C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\PythonApplication\PythonApplication.py");

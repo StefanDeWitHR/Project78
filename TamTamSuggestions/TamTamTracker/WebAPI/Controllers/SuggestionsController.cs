@@ -59,8 +59,8 @@ namespace WebAPI.Controllers
             string suggestion = "";
             //Cmd_Python.run_cmd();
             PythonRequest pr = new PythonRequest();
-     //       pr.run_cmd();
-            Cmd_Python.run_cmd();
+            pr.run_cmd();
+           // Cmd_Python.run_cmd();
             // Generare random suggestion_id and save it in DB
             string suggestion_id = Guid.NewGuid().ToString();
 

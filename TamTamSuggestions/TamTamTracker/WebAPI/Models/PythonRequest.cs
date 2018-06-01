@@ -16,11 +16,11 @@ namespace WebAPI.Models
 
             Boolean Exist_filename = File.Exists(fileName);
             //Boolean ExistPython = File.Exists("C:/Users/env/Scripts/python.exe");
-            Boolean ExistPython = File.Exists(@"C:\Python\Python36-32\python.exe");
-            // 
+            Boolean ExistPython = File.Exists(@"C:\Users\super\Anaconda3\");
+         
             Process p = new Process();
-            //p.StartInfo = new ProcessStartInfo(@"C:\Users\env\Scripts\python.exe", fileName)
-            p.StartInfo = new ProcessStartInfo(@"C:\Python\Python36-32\python.exe", fileName)
+        
+            p.StartInfo = new ProcessStartInfo(@"C:\Users\super\Anaconda3\python.exe", fileName)
             {
                 RedirectStandardOutput = true,
                 UseShellExecute = false,

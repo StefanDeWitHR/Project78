@@ -50,8 +50,8 @@ def GenerateSuggestion():
 			hours_factor = (int(hours)/24)
 			minutes_factor = (int(minutes)/60)
 			
-			#features.append([year_factor,month_factor,day_factor,hours_factor, minutes_factor, file ,school_holiday , module])
-			#labels.append(amount_of_people);
+			features.append([year_factor,month_factor,day_factor,hours_factor, minutes_factor, file ,school_holiday , module])
+			labels.append(amount_of_people);
 			i += 1
 			
 		
