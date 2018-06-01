@@ -1,5 +1,6 @@
 ﻿using IronPython.Hosting;
 using MySql.Data.MySqlClient;
+using Nager.Date;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +16,21 @@ namespace WebAPI.Controllers
     {
 
         public MySqlConnection MyConnection;
+        [HttpGet]
+        [Route("api/suggestions/IsHoliday/{datum}")]
+        public int IsHoliday(DateTime datum)
+        {
+            int schoolvakantie = 0; // no school holiday
+            if (DateSystem.IsPublicHoliday(datum, CountryCode.NL))
+            {
+                schoolvakantie = 1;
+            }
+            else
+            {
+                schoolvakantie = 0;
+            }
+            return schoolvakantie;
+        }
 
         [HttpGet]
         [Route("api/suggestions/GetDataBeacons")]
@@ -41,7 +57,10 @@ namespace WebAPI.Controllers
         public  string GetSuggestion(SuggestionGenerator sugGenerator)
         {
             string suggestion = "";
-             Cmd_Python.run_cmd();
+            //Cmd_Python.run_cmd();
+            PythonRequest pr = new PythonRequest();
+     //       pr.run_cmd();
+            Cmd_Python.run_cmd();
             // Generare random suggestion_id and save it in DB
             string suggestion_id = Guid.NewGuid().ToString();
 

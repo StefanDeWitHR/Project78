@@ -1,14 +1,18 @@
 ﻿import sys
 sys.path.append('C:/Users/super/AppData/Local/Programs/Python/Python36-32/Lib/sklearn')
 sys.path.append('C:/Users/super/AppData/Local/Programs/Python/Python36-32/Lib');
-from sklearn import tree
+sys.path.append('C:\Python\Python36-32\Lib\sklearn')
+#
 import requests
-from requests.auth import HTTPDigestAuth
+#from requests.auth import HTTPDigestAuth
 import json
-import collections;
+#import collections;  
 from datetime import datetime as dt
 from datetime import datetime
+import random
+# SKLEARN importeren
 #py C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\WebAPI\PythonScripts\machine_learning.py
+from sklearn import tree
 def GenerateSuggestion():
 		# get list of beacon data
 		response = requests.get("http://localhost:50798/api/suggestions/GetDataBeacons")
@@ -33,25 +37,62 @@ def GenerateSuggestion():
 			new_date = dt_created.replace('T', ' ') #remove char T in datetime string for converting
 			
 			date = dt.strptime(new_date,"%Y-%m-%d %H:%M:%S")
-			millisec = date.timestamp() * 1000
-
-			features.append([millisec , file ,school_holiday , module])
+			year = date.strftime("%Y")
+			month = date.strftime("%m")
+			day   = date.strftime("%d")
+			hours  = date.strftime("%H")
+			minutes = date.strftime("%M")
+			
+			#Calculate factors
+			day_factor = (int(day)/31 )
+			year_factor = (int(year)/ 2018)
+			month_factor = (int(month)/12)
+			hours_factor = (int(hours)/24)
+			minutes_factor = (int(minutes)/60)
+			
+			features.append([year_factor,month_factor,day_factor,hours_factor, minutes_factor, file ,school_holiday , module])
 			labels.append(amount_of_people);
 			i += 1
+			
 		
-		#print("****************** FEATURES *****************")
-		#print(features)
-		#print("****************** LABELS *****************")
-		#print(labels)
+		#input 
+		now = dt.now()
+		year = now.strftime("%Y")
+		month = now.strftime("%m")
+		day   = now.strftime("%d")
+		hours  = now.strftime("%H")
+		minutes = now.strftime("%M")
+			
+		#Calculate factors
+		day_factor = (int(day)/31 )
+		year_factor = (int(year)/ 2018)
+		month_factor = (int(month)/12)
+		hours_factor = (int(hours)/24)
+		minutes_factor = (int(minutes)/60)
+		
+		if (int(hours) > 8 and int(hours)  < 12) or (int(hours) == 18 or int(hours == 17)):
+			file = 1
+		else:
+			file = 0
+		
+		strg = '{:%Y-%m-%d}'.format(now)
+		
+		response = requests.get("http://localhost:50798/api/suggestions/isholiday/" + strg)
+		
+		data_school_holiday = response.json() # get data
 
 		clf = tree.DecisionTreeClassifier()
 		clf = clf.fit(features,labels);
 		#print("****************** PREDICT *****************")
-		print(clf.predict([[1229422500000.0,1,1 ,1]]));
+		
+		suggestion = clf.predict([[year_factor,month_factor,day_factor,hours_factor, minutes_factor, file ,int(data_school_holiday) , 1]])
+		print("test")
+		#print(suggestion)
 		
 
 GenerateSuggestion();
 
+#print("test")
 #input of today
 #
 

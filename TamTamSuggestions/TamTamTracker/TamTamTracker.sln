@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApplication", "TestApplication\TestApplication.csproj", "{21AA83E3-078D-4E33-80BD-E73AFC5342F0}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication", "PythonApplication\PythonApplication.pyproj", "{A0E97D62-D087-4CCF-965E-F0305A71BCE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,18 @@ Global
 		{21AA83E3-078D-4E33-80BD-E73AFC5342F0}.Release|x64.Build.0 = Release|Any CPU
 		{21AA83E3-078D-4E33-80BD-E73AFC5342F0}.Release|x86.ActiveCfg = Release|Any CPU
 		{21AA83E3-078D-4E33-80BD-E73AFC5342F0}.Release|x86.Build.0 = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|x64.ActiveCfg = Release|Any CPU
+		{A0E97D62-D087-4CCF-965E-F0305A71BCE3}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,25 +14,17 @@ namespace WebAPI.Models
 
         public static void run_cmd(/*string cmd, string args */)
         {
-            string path = "C:/Users/super/OneDrive/Documenten/GitHub/Project78/TamTamSuggestions/TamTamTracker/WebAPI/PythonScripts/machine_learning.py";
-
-            string suggestion = "";
-           
-                ProcessStartInfo start = new ProcessStartInfo();
-
-                start.FileName = @"C:\Users\env\Scripts\python.exe"; //full path to python.exe
-             
-                start.Arguments = @"C/Users/super/OneDrive/Documenten/GitHub/Project78/TamTamSuggestions/TamTamTracker/WebAPI/PythonScripts/machine_learning.py";
-
-                start.UseShellExecute = false;
-                start.RedirectStandardOutput = true;
-                
-                using (Process process = Process.Start(start))
-                using (StreamReader reader = process.StandardOutput)
-                {
-                     suggestion  = reader.ReadToEnd();
-                    
-                }
+            var engine = Python.CreateEngine();
+            var paths = engine.GetSearchPaths();
+            paths.Add(@"C:\Python\Python36-32\Lib\sklearn\");
+            paths.Add(@"C:\Python\Python36-32\Python.exe");
+            paths.Add(@"C:\Python\Python36-32\Lib\");
+            paths.Add(@"C:\Python\Python36-32\Lib\site-packages");
+            paths.Add(@"C:\users\super\appdata\local\programs\python\python36-32\lib\site-packages\sklearn\");
+            engine.SetSearchPaths(paths);
+            dynamic py = engine.ExecuteFile(@"C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\PythonApplication\PythonApplication.py");
+            string test = "";
+        }
                
             
            
@@ -49,7 +41,7 @@ namespace WebAPI.Models
             //paths.Add(@"C:\Users\super\AppData\Local\Programs\Python\Python36-32\Lib");
             //engine.SetSearchPaths(paths);
             //ScriptSource source = engine.CreateScriptSourceFromFile(path);
-
-        }
+        
+        
     }
 }
