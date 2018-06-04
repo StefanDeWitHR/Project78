@@ -9,15 +9,19 @@ namespace WebAPI.Models
 {
     public class PythonRequest
     {
+        //Required 
+        public string python_file_name = @"C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\PythonApplication\PythonApplication.py";
+        public string python_exe = @"C:\Users\super\Anaconda3\python.exe";
+
         public string run_cmd()
         {
             // Python file
-            string fileName = @"C:\Users\super\OneDrive\Documenten\GitHub\Project78\TamTamSuggestions\TamTamTracker\PythonApplication\PythonApplication.py";
+            string fileName = python_file_name;
            
             // Start process
             Process p = new Process();
             string suggestion = "";
-                p.StartInfo = new ProcessStartInfo(@"C:\Users\super\Anaconda3\python.exe", fileName)
+                p.StartInfo = new ProcessStartInfo(python_exe, fileName)
                 {
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
