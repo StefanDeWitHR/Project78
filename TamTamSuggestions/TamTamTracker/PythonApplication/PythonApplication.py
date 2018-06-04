@@ -59,7 +59,7 @@ def GenerateSuggestion():
             month = now.strftime("%m")
             day   = now.strftime("%d")
             #hours  = now.strftime("%H")
-            #minutes = now.strftime("%M")
+            minutes = now.strftime("%M")
 
             #Generate a day factor
             day_factor = (int(day)/31 )
@@ -68,7 +68,7 @@ def GenerateSuggestion():
             hours_factor = (int(hours)/24)
             #minutes_factor = (int(minutes)/60)
             # check for file
-            if (int(hours) >= 8 and int(hours)  <= 12) or (int(hours) == 18 or int(hours == 17)):
+            if (int(hours) >= 8 and int(hours)  <= 10) or (int(hours) == 18 or int(hours == 17)):
                 file = 1
             else:
                 file = 0

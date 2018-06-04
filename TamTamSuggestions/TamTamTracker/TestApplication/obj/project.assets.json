@@ -2155,23 +2155,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\super\\.nuget\\packages\\": {},
+    "C:\\Users\\fabia\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
+      "projectUniqueName": "C:\\Git\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
       "projectName": "TestApplication",
-      "projectPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
-      "packagesPath": "C:\\Users\\super\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\super\\OneDrive\\Documenten\\GitHub\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\obj\\",
+      "projectPath": "C:\\Git\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\TestApplication.csproj",
+      "packagesPath": "C:\\Users\\fabia\\.nuget\\packages\\",
+      "outputPath": "C:\\Git\\Project78\\TamTamSuggestions\\TamTamTracker\\TestApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\super\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fabia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -5,7 +5,7 @@
     <ProjectGuid>a0e97d62-d087-4ccf-965e-f0305a71bce3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>PythonApplication.py</StartupFile>
-    <SearchPath>..\..\..\..\..\..\..\..\..\Python\Python36-32\Lib\sklearn</SearchPath>
+    <SearchPath>..\..\..\..\..\Python\Python36-32\Lib\sklearn</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PythonApplication</Name>
@@ -21,9 +21,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PythonApplication.py" />
-    <Compile Include="PythonApplication_back.py">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
