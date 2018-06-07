@@ -81,7 +81,7 @@ def GenerateSuggestion():
             clf = tree.DecisionTreeClassifier()
             #train the model
             clf = clf.fit(features,labels);
-            #print("DEBUG : [hours] : " +  str(hours) + "year : "  + str(year_factor)  + " month : " + str(month_factor) + " day_factor : " + str(day_factor) + " hours_factor" + str(hours_factor) + " file " + str(file) + " holiday " + str(data_school_holiday) )
+            print("DEBUG : [hours] : " +  str(hours) + "year : "  + str(year_factor)  + " month : " + str(month_factor) + " day_factor : " + str(day_factor) + " hours_factor" + str(hours_factor) + " file " + str(file) + " holiday " + str(data_school_holiday) )
             #generate suggestion
             suggestion = clf.predict([[year_factor,month_factor,day_factor,hours_factor,  file ,int(data_school_holiday) , 1]])
             predict +=str(suggestion) + ","
