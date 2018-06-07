@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         {
 
             List<DataBeacon> dataBeacon = new List<DataBeacon>();
-            MySqlDataReader reader = DB.QuerySelect(" SELECT * FROM data_beacon GROUP BY dt_created HAVING COUNT(dt_created) > 1 ORDER BY dt_created ASC ");
+            MySqlDataReader reader = DB.QuerySelect("select * from data_beacon");
             while (reader.Read())
             {
                 var db = new DataBeacon();
