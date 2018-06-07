@@ -98,14 +98,24 @@ namespace TestApplication
 
                 if ((hours >= 8 && hours <=  10) || (hours) == 18 || (hours == 17)){
                     file = 1;
-                    amount_of_people = rnd.Next(0, 20);
-
+                    
                 }
                 else{
                     file = 0;
+                }
+                if ((hours >= 11 && hours <= 13) && file ==1 )
+                {
+                 
                     amount_of_people = rnd.Next(20, 50);
                 }
-
+                else if ((hours >= 11 && hours <= 13) && file == 0)
+                {
+                    amount_of_people = rnd.Next(50, 80);
+                }
+                else
+                {      
+                    amount_of_people = rnd.Next(0, 20);
+                }
                 if (DateSystem.IsPublicHoliday(maand_jaar, CountryCode.NL))
                 {
                     schoolvakantie = 1;
